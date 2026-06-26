@@ -1,0 +1,331 @@
+/* App.css */
+
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --border: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #10b981;
+}
+
+/* KÜRESEL BOYUTLANDIRMA SABİTLEYİCİ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* VITE ANA KÖK DİZİN SABİTLEYİCİ */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-y: scroll;
+}
+
+/* ANA YAPI */
+.app-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  min-height: 100vh;
+}
+
+.main-header {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  position: relative; 
+}
+
+.main-header h1 {
+  font-size: 2.2rem;
+  background: linear-gradient(to right, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  margin: 0;
+  text-align: center;
+}
+
+.main-header .btn-logout {
+  position: absolute;
+  right: 0;
+  background-color: #334155; 
+  color: white; 
+}
+
+/* KARTLAR VE FORMLAR */
+.card-section {
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.card-title {
+  color: var(--primary);
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* BUTONLAR */
+button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.btn-primary-full {
+  background-color: var(--primary);
+  color: white;
+  width: 100%;
+  padding: 14px;
+}
+
+.btn-primary-full:hover { background-color: var(--primary-hover); transform: translateY(-1px); }
+
+.btn-edit { background-color: var(--warning); color: white; }
+.btn-delete { background-color: var(--danger); color: white; }
+.btn-cancel { background-color: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+.btn-cancel:hover { color: white; border-color: white; }
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* ARAMA ÇUBUĞU */
+.search-container {
+  margin-bottom: 30px;
+}
+
+.search-input {
+  background-color: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 1rem;
+}
+
+/* TOPLANTI KARTLARI YAPISI */
+.meeting-grid {
+  width: 100%;
+}
+
+.meeting-card {
+  background: white;
+  color: #1e293b;
+  padding: 24px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.meeting-content {
+  flex: 1;
+  padding-right: 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.meeting-content h4 { 
+  margin: 0 0 8px 0; 
+  color: var(--primary); 
+  font-size: 1.25rem; 
+  word-break: break-word;
+}
+
+.m-desc { 
+  color: #475569; 
+  margin-bottom: 12px; 
+  font-size: 0.95rem; 
+  word-break: break-word;
+}
+
+.meeting-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.meeting-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* AUTH (GİRİŞ) EKRANI */
+.auth-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.auth-card {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-title { margin-bottom: 25px; color: var(--primary); text-align: center; }
+
+.toggle-auth {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: center;
+}
+
+/* UYARILAR & SAYFALAMA */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 40px 0 60px;
+}
+
+.pagination button { background: var(--bg-card); color: white; border: 1px solid var(--border); }
+.pagination button:disabled { opacity: 0.3; }
+
+
+/* MODAL (POPUP) TASARIMI */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(5px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; 
+}
+
+.modal-box {
+  background-color: var(--bg-card);
+  padding: 35px 30px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+  border-top: 6px solid var(--primary); 
+}
+
+.modal-box h3 {
+  margin-top: 0;
+  color: var(--text-main);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.modal-box p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* SAYAÇ (CHAR COUNTER) TASARIMI */
+.label-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.label-header label {
+  margin-bottom: 0;
+}
+
+.char-counter {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.char-counter.limit-reached {
+  color: var(--danger);
+  font-weight: bold;
+}
